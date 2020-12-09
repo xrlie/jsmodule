@@ -1,4 +1,4 @@
-// Ejercicio
+// Ejercicio 1
 // 1. Estar en la rama de la clase.
 // 2. Crear el archivo is_largest.js
 // 3. Pedir al usuario que ingrese 2 números.
