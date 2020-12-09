@@ -13,6 +13,7 @@
 
 const ESTADO_DIA = prompt('De las siguientes opciones elige la que mejor describa tu día: Soleado, Lluvioso, Nevando, Nubleado o ninguna')
 
+/*
 if (ESTADO_DIA === 'Soleado' || 'soleado') {
     console.log(`Tu día está ${ESTADO_DIA}`)
 } else if (ESTADO_DIA === 'Lluvioso' || 'lluvioso') {
@@ -25,4 +26,23 @@ if (ESTADO_DIA === 'Soleado' || 'soleado') {
 else {
     const nuevo_estado = prompt('Escribe la descripción de tu día en una palabra')
     console.log(`Tu día está ${nuevo_estado}`)
+}
+*/
+
+switch (ESTADO_DIA) {
+    case 'soleado':
+        console.log(`Tu día está ${ESTADO_DIA}`)
+        break;
+    case 'lluvioso':
+        console.log(`Tu día está ${ESTADO_DIA}`)
+        break;
+    case 'nevando':
+        console.log(`Tu día está ${ESTADO_DIA}`)
+        break;
+    case 'nublado':
+        console.log(`Tu día está ${ESTADO_DIA}`)
+        break;
+    default:
+        const nuevo_estado = prompt('Escribe la descripción de tu día en una palabra')
+        console.log(`Tu día está ${nuevo_estado}`)
 }
