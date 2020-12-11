@@ -5,7 +5,7 @@ console.log('Homework')
 // 7 x 1 = 7
 
 for (let i = 1; i < 11; ++i) {
-    console.log(`7 x 1 = ${i * 7}`)
+    console.log(`7 x ${i} = ${i * 7}`)
 }
 
 // Exercise 2
