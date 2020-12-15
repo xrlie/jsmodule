@@ -11,12 +11,23 @@ function calculate_dog_age(dog_name, human_age) {
  * Function 2  *
  * * * * * * * */
 
-function circle_properties (radius) {
-    const pi = 3.1416
-    let area = pi * Math.pow(parseInt(radius), 2) 
-    let circunference = pi * 2 * parseInt(radius) 
-    return area, circunference
- }
+// function circle_properties (radius) {
+//     const pi = 3.1416
+//     let area = pi * Math.pow(parseInt(radius), 2) 
+//     let circunference = pi * 2 * parseInt(radius)
+//     let array_circle = []
+//     array_circle[0] = area
+//     array_circle[1] = circunference 
+//     return array_circle
+//  }
+
+function calc_circumference (radius) {
+    return 3.1416 * 2 * radius
+}
+
+function calc_area (radius) {
+    return 3.1416 * Math.pow(radius,2)
+}
 
  /* * * * * * * *
  * Function 3  *
