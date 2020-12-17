@@ -12,13 +12,13 @@
 
 const highest_number = number => {
     let aux = 0
-    number.forEach = element => {
+    number.forEach(element => {
         if (aux < element) {
             aux = element
         }
         return aux
-    }
-    //return aux
+    })
+    return aux
 }
 
 
@@ -30,7 +30,9 @@ const highest_number = number => {
 // input: [1,2,3,4,5]
 // output -> ['1,','2','3','4','5']
 
-
+const number_to_string = num_array => {
+    return string_num = num_array.map(current_value => current_value.toString())
+}
 
 // ejercicio 3 .map()
 // función
@@ -38,6 +40,13 @@ const highest_number = number => {
 // input: ['hOlA', 'mundo', 123]
 // output -> ['Hola','Mundo','123]
 
+const capitalize = rand_array => {
+    return capital = rand_array.map(current_value => 
+        typeof(current_value) === 'string' ? 
+        current_value.charAt(0).toUpperCase() + current_value.slice(1).toLowerCase() 
+        : 
+        current_value)
+}
 
 
 // ejercicio 4 .filter()
@@ -58,7 +67,7 @@ const highest_number = number => {
 
 
 
-// ejercicio 7 .filter()
+// ejercicio 6 .filter()
 //  funcion
 // dado un array de años, filtre los elementos
 // y devuelva un array con los años que son bisiesto
