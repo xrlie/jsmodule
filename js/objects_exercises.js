@@ -52,6 +52,12 @@ const is_role = (array_users, role) => {
     return new_users_array
 }
 
+const filter_by_role = (arr, role) => {
+    return arr.filter(user => {
+        return user.role === role
+    })
+}
+
 // for(item in person) {
 //     if (item === 'location' || item === 'credential') {
 //         for(item2 in person[item]) {
