@@ -19,8 +19,22 @@ let users = [
 //   'Wes Reid': 'Instructor',
 //   'Zach Klabunde': 'Instructor'
 //   }
+// let new_users = {}
+// let fullname = 
+// for(item in users) {
+//     console.log(`${users[item].firstName} ${users[item].lastName}: ${users[item].role}`)
+// }
+// console.log(`${users[0].firstName} ${users[0].lastName}: ${users[0].role}`)
 
+const add_users = users.reduce(((accumulator, user) => {
+    let fullname = `${user.firstName} ${user.lastName}`
+    accumulator[fullname] = user.role
+    return accumulator
+}), {})
 
+// const new_Object = {
+
+// }
 
 // Ejercicio 2
 //  tomando el array users,
