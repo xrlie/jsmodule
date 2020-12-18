@@ -91,3 +91,15 @@ let age_sum = voters.reduce((accumulator, current_value) => {
     return accumulator + current_value.age
 }, 0)
 console.log(`El promedio de edad de los votantes es de ${(age_sum / voters.length).toFixed(0)} años`)
+
+
+// Ejercicio extra
+let numbers_reduce = [
+    [1, 2, 4],
+    [1, 2, 8],
+    [1, 9, 3]
+]
+// Retornar la suma total de todos los números
+let total = numbers_reduce.reduce((acc, cv) => {
+    return acc + cv.reduce((acc2, cv2) => {return acc2 + cv2},0)
+},0)
