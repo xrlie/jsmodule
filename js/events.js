@@ -46,7 +46,7 @@ const show_elements = (selector, number_elements, arr_names, special) => {
 
 // mejor solución
 const filter_koders = letter => {
-    let filtered = koders_arr.filter(koder => {
+    let filtered = koders_arr3.filter(koder => {
         return koder.toLowerCase().startsWith(letter.toLowerCase())
     })
     add_elements('#lista', filtered.length, filtered)

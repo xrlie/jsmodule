@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <button onclick="add_elements('#lista', 4, koders_arr)">Todos</button>
+    <button onclick="add_elements('#lista', koders_arr3.length, koders_arr3)">Todos</button>
     <!-- <button onclick="show_elements('#lista', 4, koders_arr, 'A')">A</button>
     <button onclick="show_elements('#lista', 4, koders_arr, 'O')">O</button>
     <button onclick="show_elements('#lista', 4, koders_arr, 'R')">R</button> -->
@@ -15,7 +15,7 @@
     <button onclick="filter_koders('o')">O</button>
     <button onclick="filter_koders('r')">R</button>
 
-    <select name="" id="orden">
+    <select name="" id="orden" onchange="ordering_koders(document.getElementById('orden').value)">
         <option value="">Seleccionar</option>
         <option value="a">Ascendente</option>
         <option value="d">Descendente</option>
