@@ -42,4 +42,15 @@ let new_struct = document.getElementById("new_id").innerHTML
 document.getElementById('caja2').appendChild(unordlist2)
 document.getElementById("secundario").innerHTML = new_struct
 
-// title.innerHTML = "Soy un título"
+title.innerHTML = "Soy un título"
+
+// solución tarea
+let ul_element = ''
+for (let i = 1; i<= 9; ++i) {
+    ul_element += `<li>
+                        <a href="">item ${i}</a>
+                   </li>`
+}
+console.log(ul_element)
+let box = document.getElementById('caja2')
+box.innerHTML = ul_element
