@@ -6,8 +6,28 @@
     <title>Hola mundo</title>
 </head>
 <body>
-    <h1>Hola koders</h1>
+    
+    <button onclick="add_elements('#lista', 4, koders_arr)">Todos</button>
+    <!-- <button onclick="show_elements('#lista', 4, koders_arr, 'A')">A</button>
+    <button onclick="show_elements('#lista', 4, koders_arr, 'O')">O</button>
+    <button onclick="show_elements('#lista', 4, koders_arr, 'R')">R</button> -->
+    <button onclick="filter_koders('a')">A</button>
+    <button onclick="filter_koders('o')">O</button>
+    <button onclick="filter_koders('r')">R</button>
+
+    <select name="" id="orden">
+        <option value="">Seleccionar</option>
+        <option value="a">Ascendente</option>
+        <option value="d">Descendente</option>
+    </select>
+
+    <ul id="lista">
+
+    </ul>
+
 
     <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/homework_events.js"></script>
 </body>
 </html>
