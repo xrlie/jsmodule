@@ -1,7 +1,7 @@
 .my_div {
     border: 1px solid black;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 25px;
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -16,3 +16,31 @@
 .d-block {
     display: block;
 }
+
+.my_form {
+    width: 250px;
+    height: 175px;
+    margin-bottom: 35px;
+    /* text-align: left; */
+}
+
+.container {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_box, .pass_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.msn {
+    font-size: 2rem;
+    text-align: center;
+}
+
+
