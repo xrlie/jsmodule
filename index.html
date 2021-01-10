@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola mundo</title>
+    <title>AJAX</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Hola koders</h1>
 
-    <script src="js/main.js"></script>
+    <div>
+        <button id="get_users">Obtener usuarios</button>
+        <button class="d-none" id="delete_users">Cerrar</button>
+        <ul class="users">
+            
+        </ul>
+        <button id="get_posts">Obtener posts</button>
+        <button class="d-none" id="delete_posts">Cerrar</button>
+        <ul class="posts">
+
+        </ul>
+    </div>
+
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/ajax-xhr.js"></script>
 </body>
 </html>
