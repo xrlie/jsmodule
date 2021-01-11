@@ -83,14 +83,14 @@ const selec_data = (selector, arr_data) => {
         document.querySelector('.posts').innerHTML = list_data
     }
 }
-get_users.addEventListener('click', function(){
-    get_data('users')
-    document.querySelector('#delete_users').classList.remove('d-none')
-})
-get_posts.addEventListener('click', function(){
-    get_data('posts')
-    document.querySelector('#delete_posts').classList.remove('d-none')
-})
+// get_users.addEventListener('click', function(){
+//     get_data('users')
+//     document.querySelector('#delete_users').classList.remove('d-none')
+// })
+// get_posts.addEventListener('click', function(){
+//     get_data('posts')
+//     document.querySelector('#delete_posts').classList.remove('d-none')
+// })
 
 const delete_data = (selector) => {
     document.querySelector(selector).innerHTML = ''
@@ -98,10 +98,12 @@ const delete_data = (selector) => {
 
 delete_users.addEventListener('click', function() {
     delete_data('.users')
+    delete_data('.container')
     document.querySelector('#delete_users').classList.add('d-none')
 })
 
 delete_posts.addEventListener('click', function() {
     delete_data('.posts')
+    delete_data('#second-cont')
     document.querySelector('#delete_posts').classList.add('d-none')
 })
