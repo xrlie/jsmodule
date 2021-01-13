@@ -1,0 +1,131 @@
+* {
+    font-family: 'Lobster', cursive;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.container .row {
+    /* border: 1px solid black; */
+    height: 375px;
+    background-color: lightgray;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px black;
+    /* background-image: url('../assets/img/bkg_1.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 30px;
+}
+
+#one {
+    text-align: right;
+}
+
+#one p {
+    margin: 0;
+    margin-top: 12.5px;
+    font-weight: bold;
+    color: white;
+}
+
+#two {
+    /* border: 1px solid black; */
+    background-color: white;
+    /* box-shadow: 0px 2px 5px gray; */
+}
+
+#two p {
+    margin: 0;
+    margin-top: 12.5px;
+    font-weight: bold;
+    color: black;
+}
+
+.profile {
+    display: block;
+    width: 125px;
+    height: 125px;
+    border: 8px solid white;
+    border-radius: 100%;
+    box-shadow: 0px 3px 5px black;
+    position: relative;
+    left: 80%;
+    /* top: 12.5px; */
+    z-index: 7;
+    background-color: white;
+}
+
+.card-img-top {
+    width: 200px;
+    height: auto;
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+}
+
+div.col-4 > ul {
+    padding-left: 0;
+}
+
+.container #two p.s_cap {
+    font-size: 7.5px;
+    padding: 0;
+    margin: 0;
+}
+
+.fas {
+    margin-right: 5px;
+}
+
+section {
+    margin: 10px 20px;
+}
+
+input {
+    width: 50px;
+}
+
+footer {
+    font-size: 10px;
+}
+
+.card-users {
+    margin: 0 auto;
+    margin-top: 15px;
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.5);
+    max-width: 200px;
+}
+
+.users_form {
+    width: 225px;
+    padding: 10px;
+    /* padding-top: 10px;
+    padding-bottom: 20px; */
+    margin-left: 35px;
+    /* padding-left: 25px; */
+    text-align: center;
+}
+
+.users_form p {
+    margin: 0;
+}
+
+input {
+    /* margin-left: 10px; */
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 100px;
+}
+
+label {
+    /* margin-left: 10px; */
+    margin-top: 10px;
+}
+
+#submit_form {
+    margin: 0;
+    margin-top: 10px;
+}
