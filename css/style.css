@@ -109,6 +109,10 @@ footer {
     text-align: center;
 }
 
+.new_form {
+    margin-left: 6.1875px;
+}
+
 .users_form p {
     margin: 0;
 }
@@ -131,14 +135,22 @@ label {
     border-radius: 10px;
 }
 
-#update_user {
+#update_user, #get_users, #add_users_button, 
+#delete_users_button, #delete_user {
     margin: 10px 0;
     border-radius: 10px;
 }
 
-#update_user:hover, #update_form:hover {
+#update_user:hover, #update_form:hover, #submit_form:hover, 
+#get_users:hover, #add_users_button:hover, #delete_users_button:hover {
     /* background-color: royalblue; */
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
     background-color: black;
     color: white;
+}
+
+#delete_icon {
+    margin-left: 10px;
+    margin-top: 2px;
+    height: 20px;
 }

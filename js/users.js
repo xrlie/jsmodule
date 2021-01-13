@@ -1,7 +1,5 @@
 let user = document.querySelector('.user')
 
-const url_db = 'https://koders1gpython-default-rtdb.firebaseio.com/carlos/'
-
 let id = new URLSearchParams(window.location.search)
 console.log(id.get('id'))
 
@@ -17,12 +15,18 @@ if (user) {
         } else {
             if (request.status >= 200 && request.status <= 299) {
                 let obj_data = JSON.parse(request.responseText)
-                display_user(obj_data)
+                if (obj_data !== null) {
+                    display_user(obj_data)
+                }
             } else {
+                if (obj_data === null && window.location.pathname === '/update_user.html') {
+                    window.location.pathname = 'index.html'
+                }
                 console.log(JSON.parse(request.responseText))
             }
         }
     })
+
     request.open('GET', `${url_db}/users/${id.get('id')}.json`)
     request.send()
 
@@ -75,7 +79,9 @@ if (update_user_form) {
         } else {
             if (request.status >= 200 && request.status <= 299) {
                 let obj_data = JSON.parse(request.responseText)
-                display_update_form_data(obj_data)
+                if (obj_data !== null) {
+                    display_update_form_data(obj_data)
+                }
             } else {
                 console.log(JSON.parse(request.responseText))
             }
@@ -126,7 +132,30 @@ if (update_user_form) {
         //window.location.pathname = 'user.html'
     })
 
-    window.addEventListener('load', display_update_form_data)
+    window.addEventListener('load', function () {
+        const request = new XMLHttpRequest()
+        request.addEventListener('readystatechange', () => {
+            if (request.readyState !== 4) {
+                return
+            } else {
+                if (request.status >= 200 && request.status <= 299) {
+                    let obj_data = JSON.parse(request.responseText)
+                    if (obj_data !== null) {
+                        display_update_form_data(obj_data)
+                    } else if (obj_data === null) {
+                        window.location.pathname = 'index.html'
+                    }
+                } else {
+                    // if (JSON.parse(request.responseText) === null) {
+                    //     window.location.pathname = 'index.html'
+                    // }
+                    console.log(JSON.parse(request.responseText))
+                }
+            }
+        })
+        request.open('GET', `${url_db}/users/${id.get('id')}.json`)
+        request.send()
+    })
 
 
 }

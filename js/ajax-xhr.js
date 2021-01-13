@@ -102,7 +102,7 @@ const update_and_modify = (user_id) => {
     request.send()
 }
 
-const delete_user = (user_id) => {
+const delete_user_old = (user_id) => {
     const request = new XMLHttpRequest()
     request.addEventListener('readystatechange', () => {
         if(request.readyState !== 4) {
@@ -130,8 +130,16 @@ const ajax_function = (user_url, method, data = {}) => {
             if(request.status >= 200 && request.status <= 299) {
                 let obj_data = JSON.parse(request.responseText)
                 console.log(obj_data)
-                display_data('users', obj_data)
+                if (obj_data === null) {
+                    window.location.pathname = 'index.html'
+                }
+                if (method !== 'POST' || method !== 'DELETE') {
+                    display_data('users', obj_data)
+                }
             } else {
+                if (obj_data === null && window.location.pathname === '/update_user.html') {
+                    window.location.pathname = 'index.html'
+                }
                 console.log(JSON.parse(request.responseText))
             }
         }
@@ -208,68 +216,112 @@ const display_data = (selector, arr_data) => {
     }
 }
 
+/* * * * * * * * * * * * * * *
+ *      index.html code      *
+ * * * * * * * * * * * * * * */
+
+
 const get_users = document.getElementById('get_users')
-const delete_users = document.getElementById('delete_users')
+const delete_users_button = document.getElementById('delete_users_button')
 const get_posts = document.getElementById('get_posts')
 const delete_posts = document.getElementById('delete_posts')
-const add_users = document.getElementById('add_users')
-const submit_user = document.getElementById('submit_form')
+const add_users_button = document.getElementById('add_users_button')
 
-get_users.addEventListener('click', function() {
-    ajax_function(my_url_db,'GET',{})
-    document.querySelector('#delete_users').classList.remove('d-none')
-})
+if(get_users) {
+    get_users.addEventListener('click', function() {
+        ajax_function(my_url_db,'GET',{})
+        document.querySelector('#delete_users_button').classList.remove('d-none')
+    })
+}
 
 const delete_data = (selector) => {
     document.querySelector(selector).innerHTML = ''
 }
 
-delete_users.addEventListener('click', function() {
-    delete_data('.users')
-    delete_data('.container')
-    document.querySelector('#delete_users').classList.add('d-none')
-})
+if(delete_users_button) {
+    delete_users_button.addEventListener('click', function() {
+        delete_data('.users')
+        delete_data('.container')
+        document.querySelector('#delete_users_button').classList.add('d-none')
+    })
+}
 
-add_users.addEventListener('click', function() {
-    window.location.pathname = 'new_user.html'
-    document.querySelector('.users_form').classList.remove('d-none')
-})
+if(add_users_button) {
+    add_users_button.addEventListener('click', function() {
+        window.location.pathname = 'new_user.html'
+        document.querySelector('.users_form').classList.remove('d-none')
+    })
+}
 
-submit_user.addEventListener('click', function () {
-    window.location.pathname = 'new_user.html'
-    /*
+/* * * * * * * * * * * * * * * *
+ *     new_user.html code      *
+ * * * * * * * * * * * * * * * */
+
+const submit_user = document.getElementById('submit_form')
+
+const add_new_user = () => {
     let name_form = document.getElementById('name_form').value
     let lastname_form = document.getElementById('lastname_form').value
     let url_photo_form = document.getElementById('url_photo_form').value
-    if(name_form !== '' && lastname_form !== '' && url_photo_form !== '') {
-        console.log(name_form)
-        console.log(lastname_form)
-        console.log(url_photo_form)
-        console.log(`{
-            lastname: ${lastname_form},
-            name: ${name_form},
-            url_photo: ${url_photo_form}
-        }`)
+    if(name_form === '') {
+        console.log('El campo del nombre está vacío')
+    } else if (lastname_form === '') {
+        console.log('El campo del apellido está vacío')
+    } else if (url_photo_form === ''){
+        console.log('El campo del url está vacío')
+    } else {
         let new_user = {
             lastname: lastname_form,
             name: name_form,
             url_photo: url_photo_form
         }
+        console.log(new_user)
         ajax_function(my_url_db, 'POST', new_user)
+        window.location.search = 'id='
         console.log('usuario agregado con éxito')
-        document.querySelector('.users_form').classList.add('d-none')
-    } else {
-        if(name_form === '') {
-            console.log('El campo del nombre está vacío')
-        } else if (lastname_form === '') {
-            console.log('El campo del apellido está vacío')
-        } else {
-            console.log('El campo del url está vacío')
-        }
-
     }
-    */
-})
+}
+
+if(submit_user) {
+    submit_user.addEventListener('click', function () {
+        // window.location.search = ''
+        add_new_user()
+        window.location.pathname = 'index.html'
+        // window.location.search = 'id='
+        /*
+        let name_form = document.getElementById('name_form').value
+        let lastname_form = document.getElementById('lastname_form').value
+        let url_photo_form = document.getElementById('url_photo_form').value
+        if(name_form !== '' && lastname_form !== '' && url_photo_form !== '') {
+            console.log(name_form)
+            console.log(lastname_form)
+            console.log(url_photo_form)
+            console.log(`{
+                lastname: ${lastname_form},
+                name: ${name_form},
+                url_photo: ${url_photo_form}
+            }`)
+            let new_user = {
+                lastname: lastname_form,
+                name: name_form,
+                url_photo: url_photo_form
+            }
+            ajax_function(my_url_db, 'POST', new_user)
+            console.log('usuario agregado con éxito')
+            document.querySelector('.users_form').classList.add('d-none')
+        } else {
+            if(name_form === '') {
+                console.log('El campo del nombre está vacío')
+            } else if (lastname_form === '') {
+                console.log('El campo del apellido está vacío')
+            } else {
+                console.log('El campo del url está vacío')
+            }
+    
+        }
+        */
+    })
+}
 
 // ajax_function(url_db, 'POST', `{
 //     lastname: "${name_form}",
@@ -277,8 +329,28 @@ submit_user.addEventListener('click', function () {
 //     url_photo: "${url_photo_form}"
 // }`)
 
-if(window.location.search === '?id=') {
-    console.log('get data...')
-    ajax_function(my_url_db,'GET',{})
-    document.querySelector('#delete_users').classList.remove('d-none')
+/* * * * * * * * * * * * * * * * *
+ *     delete_user.html code     *
+ * * * * * * * * * * * * * * * * */
+
+let delete_user = document.getElementById('delete_user')
+
+if(delete_user) {
+    delete_user.addEventListener('click', function() {
+        let id = url_aux.get('id')
+        ajax_function(`${url_db}users/${id}.json`,'DELETE',{})
+    })
+}
+
+let url_aux = new URLSearchParams(window.location.search)
+if(window.location.pathname !== '/new_user.html'){
+    if(window.location.search === '?id=') {
+        ajax_function(my_url_db,'GET',{})
+        document.querySelector('#delete_users_button').classList.remove('d-none')
+    } else if(window.location.search !== '') {
+        if ((window.location.pathname === "/index.html" && url_aux.get('id').charAt(0) === '-')
+                    || (window.location.pathname === "/" && url_aux.get('id').charAt(0) === '-')) {
+            window.location.search = '?id='
+        }
+    }
 }
