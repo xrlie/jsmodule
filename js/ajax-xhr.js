@@ -235,7 +235,7 @@ add_users.addEventListener('click', function() {
     document.querySelector('.users_form').classList.remove('d-none')
 })
 
-submit_user.addEventListener('click', function (evt) {
+submit_user.addEventListener('click', function () {
     window.location.pathname = 'new_user.html'
     /*
     let name_form = document.getElementById('name_form').value
@@ -276,3 +276,9 @@ submit_user.addEventListener('click', function (evt) {
 //     name: "${name_form}",
 //     url_photo: "${url_photo_form}"
 // }`)
+
+if(window.location.search === '?id=') {
+    console.log('get data...')
+    ajax_function(my_url_db,'GET',{})
+    document.querySelector('#delete_users').classList.remove('d-none')
+}

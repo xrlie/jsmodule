@@ -125,7 +125,20 @@ label {
     margin-top: 10px;
 }
 
-#submit_form {
+#submit_form, #update_form {
     margin: 0;
     margin-top: 10px;
+    border-radius: 10px;
+}
+
+#update_user {
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+#update_user:hover, #update_form:hover {
+    /* background-color: royalblue; */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    background-color: black;
+    color: white;
 }
