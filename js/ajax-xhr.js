@@ -231,10 +231,13 @@ delete_users.addEventListener('click', function() {
 })
 
 add_users.addEventListener('click', function() {
+    window.location.pathname = 'new_user.html'
     document.querySelector('.users_form').classList.remove('d-none')
 })
 
 submit_user.addEventListener('click', function (evt) {
+    window.location.pathname = 'new_user.html'
+    /*
     let name_form = document.getElementById('name_form').value
     let lastname_form = document.getElementById('lastname_form').value
     let url_photo_form = document.getElementById('url_photo_form').value
@@ -265,7 +268,7 @@ submit_user.addEventListener('click', function (evt) {
         }
 
     }
-
+    */
 })
 
 // ajax_function(url_db, 'POST', `{
