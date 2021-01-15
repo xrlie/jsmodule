@@ -129,7 +129,7 @@ label {
     margin-top: 10px;
 }
 
-#submit_form, #update_form {
+#submit_form, #update_form, #submit_new_form {
     margin: 0;
     margin-top: 10px;
     border-radius: 10px;
@@ -141,7 +141,7 @@ label {
     border-radius: 10px;
 }
 
-#update_user:hover, #update_form:hover, #submit_form:hover, 
+#update_user:hover, #update_form:hover, #submit_form:hover, #submit_new_form:hover, 
 #get_users:hover, #add_users_button:hover, #delete_users_button:hover {
     /* background-color: royalblue; */
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
